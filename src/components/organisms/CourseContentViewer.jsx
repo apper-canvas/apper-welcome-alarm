@@ -1,14 +1,12 @@
 import React from 'react';
-import { Plus, Edit, Trash2, BookOpen, Clock, User } from 'lucide-react';
+import { BookOpen, Clock, User, Menu } from 'lucide-react';
 import LoadingSpinner from '@/components/atoms/LoadingSpinner';
 
 const CourseContentViewer = ({ 
   topic, 
-  loading, 
-  isAdmin, 
-  onAdd, 
-  onEdit, 
-  onDelete 
+  loading,
+  onToggleSidebar,
+  sidebarCollapsed
 }) => {
   if (loading) {
     return (
@@ -18,7 +16,7 @@ const CourseContentViewer = ({
     );
   }
 
-  if (!topic) {
+if (!topic) {
     return (
       <div className="h-full flex items-center justify-center bg-white">
         <div className="text-center max-w-md mx-auto p-6">
@@ -31,51 +29,51 @@ const CourseContentViewer = ({
           <p className="text-surface-600">
             Choose a topic from the sidebar to view its content and start learning.
           </p>
-          {isAdmin && (
-            <button
-              onClick={onAdd}
-              className="mt-6 px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors duration-200 font-medium"
-            >
-              Add First Topic
-            </button>
-          )}
         </div>
       </div>
     );
   }
 
-  return (
-    <div className="h-full flex flex-col bg-white">
-      {/* Header with Admin Controls */}
-      <div className="border-b border-surface-200 bg-white sticky top-0 z-10">
-        <div className="p-6">
-          <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
-            <div className="flex-1">
-              <h1 className="text-2xl font-bold text-surface-900 mb-2 font-heading">
+return (
+    <div className="h-full flex flex-col bg-white document-viewer">
+      {/* Header with Mobile Sidebar Toggle */}
+      <div className="border-b border-surface-200 bg-white sticky top-0 z-10 shadow-sm">
+        <div className="p-4 md:p-6">
+          <div className="flex items-start gap-4">
+            <button
+              onClick={onToggleSidebar}
+              className="md:hidden p-2 text-surface-600 hover:text-surface-800 hover:bg-surface-100 rounded-lg transition-colors duration-200"
+              title="Toggle sidebar"
+            >
+              <Menu className="w-5 h-5" />
+            </button>
+            
+            <div className="flex-1 min-w-0">
+              <h1 className="text-2xl md:text-3xl font-bold text-surface-900 mb-3 font-heading leading-tight">
                 {topic.title}
               </h1>
               {topic.description && (
-                <p className="text-surface-600 text-lg">
+                <p className="text-surface-600 text-lg mb-4 leading-relaxed">
                   {topic.description}
                 </p>
               )}
               
               {/* Topic Metadata */}
-              <div className="flex flex-wrap items-center gap-4 mt-4 text-sm text-surface-500">
+              <div className="flex flex-wrap items-center gap-4 text-sm text-surface-500">
                 {topic.duration && (
-                  <div className="flex items-center space-x-1">
+                  <div className="flex items-center space-x-1.5">
                     <Clock className="w-4 h-4" />
                     <span>{topic.duration}</span>
                   </div>
                 )}
                 {topic.author && (
-                  <div className="flex items-center space-x-1">
+                  <div className="flex items-center space-x-1.5">
                     <User className="w-4 h-4" />
                     <span>{topic.author}</span>
                   </div>
                 )}
                 {topic.difficulty && (
-                  <span className={`px-2 py-1 rounded-full text-xs font-medium ${
+                  <span className={`px-3 py-1 rounded-full text-xs font-medium ${
                     topic.difficulty === 'Beginner' 
                       ? 'bg-green-100 text-green-800'
                       : topic.difficulty === 'Intermediate'
@@ -87,33 +85,6 @@ const CourseContentViewer = ({
                 )}
               </div>
             </div>
-
-            {/* Admin Controls */}
-            {isAdmin && (
-              <div className="flex items-center space-x-2">
-                <button
-                  onClick={onAdd}
-                  className="p-2 text-surface-600 hover:text-primary hover:bg-primary/5 rounded-lg transition-colors duration-200"
-                  title="Add New Topic"
-                >
-                  <Plus className="w-5 h-5" />
-                </button>
-                <button
-                  onClick={onEdit}
-                  className="p-2 text-surface-600 hover:text-secondary hover:bg-secondary/5 rounded-lg transition-colors duration-200"
-                  title="Edit Topic"
-                >
-                  <Edit className="w-5 h-5" />
-                </button>
-                <button
-                  onClick={onDelete}
-                  className="p-2 text-surface-600 hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors duration-200"
-                  title="Delete Topic"
-                >
-                  <Trash2 className="w-5 h-5" />
-                </button>
-              </div>
-            )}
           </div>
         </div>
       </div>
@@ -172,25 +143,17 @@ const CourseContentViewer = ({
                 </div>
               )}
             </div>
-          ) : (
-            <div className="text-center py-12">
+) : (
+            <div className="text-center py-16">
               <div className="text-surface-400 mb-4">
                 <BookOpen className="w-12 h-12 mx-auto" />
               </div>
               <h3 className="text-lg font-semibold text-surface-800 mb-2 font-heading">
                 No Content Available
               </h3>
-              <p className="text-surface-600 mb-4">
+              <p className="text-surface-600">
                 This topic doesn't have any content yet.
               </p>
-              {isAdmin && (
-                <button
-                  onClick={onEdit}
-                  className="px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors duration-200 font-medium"
-                >
-                  Add Content
-                </button>
-              )}
             </div>
           )}
         </div>

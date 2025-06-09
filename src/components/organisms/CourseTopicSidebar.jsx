@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
-import { BookOpen, ChevronRight } from 'lucide-react';
+import { BookOpen, ChevronRight, Menu, X } from 'lucide-react';
 
-const CourseTopicSidebar = ({ topics, selectedTopic, onTopicSelect }) => {
+const CourseTopicSidebar = ({ topics, selectedTopic, onTopicSelect, collapsed, onToggleCollapse }) => {
   const selectedRef = useRef(null);
 
   useEffect(() => {
@@ -33,27 +33,40 @@ const CourseTopicSidebar = ({ topics, selectedTopic, onTopicSelect }) => {
     }
   };
 
-  return (
-    <div className="h-full flex flex-col">
-      {/* Header */}
-      <div className="p-6 border-b border-surface-200">
-        <div className="flex items-center space-x-3 mb-2">
-          <div className="p-2 bg-primary/10 rounded-lg">
-            <BookOpen className="w-5 h-5 text-primary" />
+return (
+    <div className="h-full flex flex-col document-sidebar">
+      {/* Header with Collapse Toggle */}
+      <div className="p-4 md:p-6 border-b border-surface-200">
+        <div className="flex items-center justify-between">
+          <div className={`flex items-center space-x-3 ${collapsed ? 'hidden md:flex' : 'flex'}`}>
+            <div className="p-2 bg-primary/10 rounded-lg">
+              <BookOpen className="w-5 h-5 text-primary" />
+            </div>
+            {!collapsed && (
+              <div>
+                <h2 className="text-lg font-semibold text-surface-900 font-heading">
+                  Course Content
+                </h2>
+                <p className="text-sm text-surface-600">
+                  Getting Started with Apper
+                </p>
+              </div>
+            )}
           </div>
-          <h2 className="text-lg font-semibold text-surface-900 font-heading">
-            Course Content
-          </h2>
+          <button
+            onClick={onToggleCollapse}
+            className="p-2 text-surface-500 hover:text-surface-700 hover:bg-surface-100 rounded-lg transition-colors duration-200 hidden md:flex"
+            title={collapsed ? 'Expand sidebar' : 'Collapse sidebar'}
+          >
+            {collapsed ? <Menu className="w-5 h-5" /> : <X className="w-5 h-5" />}
+          </button>
         </div>
-        <p className="text-sm text-surface-600">
-          Getting Started with Apper
-        </p>
       </div>
 
-      {/* Table of Contents */}
-      <div className="flex-1 overflow-y-auto">
+{/* Table of Contents */}
+      <div className="flex-1 overflow-y-auto document-nav">
         {topics.length === 0 ? (
-          <div className="p-6 text-center">
+          <div className={`p-6 text-center ${collapsed ? 'hidden' : 'block'}`}>
             <div className="text-surface-400 mb-2">
               <BookOpen className="w-12 h-12 mx-auto mb-3" />
             </div>
@@ -62,7 +75,7 @@ const CourseTopicSidebar = ({ topics, selectedTopic, onTopicSelect }) => {
             </p>
           </div>
         ) : (
-          <nav className="p-4" role="navigation" aria-label="Course topics">
+          <nav className={`${collapsed ? 'p-2' : 'p-4'}`} role="navigation" aria-label="Course topics">
             <ul className="space-y-1">
               {topics.map((topic, index) => {
                 const isSelected = selectedTopic?.id === topic.id;
@@ -71,12 +84,14 @@ const CourseTopicSidebar = ({ topics, selectedTopic, onTopicSelect }) => {
                     <button
                       ref={isSelected ? selectedRef : null}
                       className={`
-                        w-full text-left p-3 rounded-lg transition-all duration-200
+                        w-full text-left rounded-lg transition-all duration-200
                         border border-transparent
                         focus:outline-none focus:ring-2 focus:ring-primary/50
                         hover:bg-surface-50 hover:border-surface-200
+                        hover:shadow-sm group
+                        ${collapsed ? 'p-2' : 'p-3'}
                         ${isSelected 
-                          ? 'bg-primary/5 border-primary/20 text-primary font-medium' 
+                          ? 'bg-primary/8 border-primary/20 text-primary font-medium shadow-sm' 
                           : 'text-surface-700 hover:text-surface-900'
                         }
                       `}
@@ -84,36 +99,54 @@ const CourseTopicSidebar = ({ topics, selectedTopic, onTopicSelect }) => {
                       onKeyDown={(e) => handleKeyDown(e, topic)}
                       tabIndex={0}
                       aria-current={isSelected ? 'page' : undefined}
+                      title={collapsed ? topic.title : undefined}
                     >
-                      <div className="flex items-center justify-between">
-                        <div className="flex-1">
-                          <div className="flex items-center space-x-3">
-                            <span className={`
-                              text-xs font-semibold px-2 py-1 rounded-full
-                              ${isSelected 
-                                ? 'bg-primary text-white' 
-                                : 'bg-surface-200 text-surface-600'
-                              }
-                            `}>
-                              {String(index + 1).padStart(2, '0')}
-                            </span>
-                            <div>
-                              <h3 className="text-sm font-medium line-clamp-2">
-                                {topic.title}
-                              </h3>
-                              {topic.description && (
-                                <p className="text-xs text-surface-500 mt-1 line-clamp-2">
-                                  {topic.description}
-                                </p>
-                              )}
+                      {collapsed ? (
+                        <div className="flex items-center justify-center">
+                          <span className={`
+                            text-xs font-bold w-6 h-6 rounded-full flex items-center justify-center
+                            ${isSelected 
+                              ? 'bg-primary text-white' 
+                              : 'bg-surface-200 text-surface-600 group-hover:bg-surface-300'
+                            }
+                          `}>
+                            {index + 1}
+                          </span>
+                        </div>
+                      ) : (
+                        <div className="flex items-center justify-between">
+                          <div className="flex-1">
+                            <div className="flex items-center space-x-3">
+                              <span className={`
+                                text-xs font-semibold px-2 py-1 rounded-full transition-colors duration-200
+                                ${isSelected 
+                                  ? 'bg-primary text-white' 
+                                  : 'bg-surface-200 text-surface-600 group-hover:bg-surface-300'
+                                }
+                              `}>
+                                {String(index + 1).padStart(2, '0')}
+                              </span>
+                              <div className="min-w-0 flex-1">
+                                <h3 className="text-sm font-medium line-clamp-2 mb-1">
+                                  {topic.title}
+                                </h3>
+                                {topic.description && (
+                                  <p className="text-xs text-surface-500 line-clamp-2 opacity-80 group-hover:opacity-100 transition-opacity duration-200">
+                                    {topic.description}
+                                  </p>
+                                )}
+                              </div>
                             </div>
                           </div>
+                          <ChevronRight className={`
+                            w-4 h-4 transition-all duration-200 flex-shrink-0 ml-2
+                            ${isSelected 
+                              ? 'text-primary rotate-90 transform' 
+                              : 'text-surface-400 group-hover:text-surface-600'
+                            }
+                          `} />
                         </div>
-                        <ChevronRight className={`
-                          w-4 h-4 transition-transform duration-200
-                          ${isSelected ? 'text-primary rotate-90' : 'text-surface-400'}
-                        `} />
-                      </div>
+                      )}
                     </button>
                   </li>
                 );
@@ -123,12 +156,14 @@ const CourseTopicSidebar = ({ topics, selectedTopic, onTopicSelect }) => {
         )}
       </div>
 
-      {/* Footer */}
-      <div className="p-4 border-t border-surface-200 bg-surface-50">
-        <div className="text-xs text-surface-500 text-center">
-          {topics.length} {topics.length === 1 ? 'topic' : 'topics'} available
+{/* Footer */}
+      {!collapsed && (
+        <div className="p-4 border-t border-surface-200 bg-surface-50/50">
+          <div className="text-xs text-surface-500 text-center">
+            {topics.length} {topics.length === 1 ? 'topic' : 'topics'} available
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };

@@ -2,8 +2,8 @@ import { Outlet } from 'react-router-dom';
 
 const Layout = () => {
   return (
-    <div className="min-h-screen max-w-full overflow-hidden">
-      <main className="main-content">
+    <div className="min-h-screen bg-background">
+      <main className="min-h-screen">
         <Outlet />
       </main>
     </div>

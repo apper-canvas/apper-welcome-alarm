@@ -35,5 +35,35 @@ body {
   }
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
+}
+
+  /* Document Layout Styles */
+  .document-sidebar {
+    box-shadow: inset -1px 0 0 #e2e8f0;
+  }
+  
+  .document-viewer {
+    background: linear-gradient(to bottom, #ffffff 0%, #fafbff 100%);
+  }
+  
+  .document-nav {
+    scroll-behavior: smooth;
+  }
+  
+  .document-nav::-webkit-scrollbar {
+    width: 4px;
+  }
+  
+  .document-nav::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  .document-nav::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 2px;
+  }
+  
+  .document-nav::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
   }
 }

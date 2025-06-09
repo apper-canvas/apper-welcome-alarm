@@ -11,9 +11,7 @@ const CourseContentPage = () => {
   const [selectedTopic, setSelectedTopic] = useState(null);
   const [loading, setLoading] = useState(true);
   const [contentLoading, setContentLoading] = useState(false);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [editingTopic, setEditingTopic] = useState(null);
-  const [isAdmin] = useState(true); // Mock admin status - replace with actual auth
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
 
   useEffect(() => {
     loadTopics();
@@ -55,76 +53,31 @@ const CourseContentPage = () => {
     } finally {
       setContentLoading(false);
     }
-  };
+};
 
-  const handleAddTopic = () => {
-    setEditingTopic(null);
-    setIsModalOpen(true);
-  };
-
-  const handleEditTopic = () => {
-    if (!selectedTopic) return;
-    setEditingTopic(selectedTopic);
-    setIsModalOpen(true);
-  };
-
-  const handleDeleteTopic = async () => {
-    if (!selectedTopic || !window.confirm('Are you sure you want to delete this topic?')) {
-      return;
-    }
-
-    try {
-      await courseContentService.delete(selectedTopic.id);
-      toast.success('Topic deleted successfully');
-      
-      const updatedTopics = topics.filter(t => t.id !== selectedTopic.id);
-      setTopics(updatedTopics);
-      setSelectedTopic(updatedTopics.length > 0 ? updatedTopics[0] : null);
-    } catch (error) {
-      console.error('Failed to delete topic:', error);
-      toast.error('Failed to delete topic');
-    }
-  };
-
-  const handleSaveTopic = async (topicData) => {
-    try {
-      if (editingTopic) {
-        // Update existing topic
-        const updatedTopic = await courseContentService.update(editingTopic.id, topicData);
-        const updatedTopics = topics.map(t => 
-          t.id === editingTopic.id ? updatedTopic : t
-        );
-        setTopics(updatedTopics);
-        setSelectedTopic(updatedTopic);
-        toast.success('Topic updated successfully');
-      } else {
-        // Create new topic
-        const newTopic = await courseContentService.create(topicData);
-        const updatedTopics = [...topics, newTopic];
-        setTopics(updatedTopics);
-        setSelectedTopic(newTopic);
-        toast.success('Topic created successfully');
-      }
-      setIsModalOpen(false);
-    } catch (error) {
-      console.error('Failed to save topic:', error);
-      toast.error('Failed to save topic');
-    }
+  const toggleSidebar = () => {
+    setSidebarCollapsed(!sidebarCollapsed);
   };
 
   if (loading) {
     return <LoadingSpinner />;
   }
 
-  return (
+return (
     <div className="min-h-screen bg-background">
-      <div className="flex flex-col md:flex-row h-screen">
+      <div className="flex h-screen">
         {/* Left Sidebar - Table of Contents */}
-        <div className="w-full md:w-80 border-r border-surface-200 bg-white">
+        <div className={`
+          ${sidebarCollapsed ? 'w-0 md:w-16' : 'w-full md:w-80'} 
+          transition-all duration-300 ease-in-out
+          border-r border-surface-200 bg-white overflow-hidden
+        `}>
           <CourseTopicSidebar
             topics={topics}
             selectedTopic={selectedTopic}
             onTopicSelect={handleTopicSelect}
+            collapsed={sidebarCollapsed}
+            onToggleCollapse={toggleSidebar}
           />
         </div>
 
@@ -133,22 +86,11 @@ const CourseContentPage = () => {
           <CourseContentViewer
             topic={selectedTopic}
             loading={contentLoading}
-            isAdmin={isAdmin}
-            onAdd={handleAddTopic}
-            onEdit={handleEditTopic}
-            onDelete={handleDeleteTopic}
+            onToggleSidebar={toggleSidebar}
+            sidebarCollapsed={sidebarCollapsed}
           />
         </div>
       </div>
-
-      {/* Content Management Modal */}
-      {isModalOpen && (
-        <CourseContentModal
-          topic={editingTopic}
-          onSave={handleSaveTopic}
-          onClose={() => setIsModalOpen(false)}
-        />
-      )}
     </div>
   );
 };
