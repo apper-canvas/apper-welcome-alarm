@@ -55,14 +55,6 @@ export const login = async (credentials) => {
   }
   throw new Error('Invalid credentials');
 };
-
-export const logout = async () => {
-  await delay(200);
-  if (currentUser) {
-    currentUser.isAuthenticated = false;
-  }
-  return { success: true };
-};
 // For development - toggle admin status
 export const toggleAdminMode = () => {
   currentUser.role = currentUser.role === 'admin' ? 'user' : 'admin';
