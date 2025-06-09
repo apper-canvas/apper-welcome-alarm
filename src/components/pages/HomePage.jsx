@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { pageContentService } from '@/services';
 import LoadingSpinner from '@/components/atoms/LoadingSpinner';
 import HomePageHero from '@/components/organisms/HomePageHero';
-import FeatureShowcase from '@/components/organisms/FeatureShowcase';
 
 const HomePage = () => {
   const [content, setContent] = useState(null);
@@ -22,7 +21,7 @@ const HomePage = () => {
           introLine1: 'Transform your ideas into fully functional apps in minutes.',
           introLine2: 'No coding experience required - just describe what you want to build.',
           ctaText: 'Click Next to begin',
-          nextUrl: '/getting-started'
+          nextUrl: '/how-it-works'
         });
       } finally {
         setLoading(false);
@@ -33,8 +32,8 @@ const HomePage = () => {
   }, []);
 
   const handleNext = () => {
-    // In a real app, this would navigate to the next step
-    window.location.href = content?.nextUrl || '/getting-started';
+    // Navigate to the how it works page
+    window.location.href = content?.nextUrl || '/how-it-works';
   };
 
   if (loading) {
@@ -44,7 +43,6 @@ const HomePage = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-white to-background flex flex-col items-center justify-center px-4 py-16 relative">
       <HomePageHero content={content} handleNext={handleNext} />
-      <FeatureShowcase />
     </div>
   );
 };
