@@ -1,36 +1,47 @@
-// Admin Authentication Service
-// Simulates role-based authentication system
-
+// Mock admin authentication service
 const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
-// Mock user data - in real app this would come from backend
-let currentUser = {
-  id: 1,
-  name: 'Admin User',
-  email: 'admin@apper.com',
-  role: 'admin', // 'admin' | 'user' | 'moderator'
-  permissions: ['read', 'write', 'delete', 'manage_content'],
-  isAuthenticated: true
+// Mock admin user data
+const mockAdmins = [
+  { id: 1, username: 'admin', role: 'admin' },
+  { id: 2, username: 'moderator', role: 'moderator' }
+];
+// Mock current user (simulate logged-in admin)
+let currentUser = { 
+  ...mockAdmins[0], 
+  isAuthenticated: true, 
+  permissions: ['read', 'write', 'delete', 'manage_content'] 
+}; // Default to admin for demo
+
+export const isAdmin = async () => {
+  await delay(100);
+  return currentUser?.role === 'admin' || currentUser?.role === 'moderator';
 };
 
 export const getCurrentUser = async () => {
   await delay(100);
-  return { ...currentUser };
+  return currentUser ? { ...currentUser } : null;
 };
 
-export const isAdmin = async () => {
-  await delay(50);
-  return currentUser.isAuthenticated && currentUser.role === 'admin';
+export const setCurrentUser = (user) => {
+  currentUser = user;
+};
+
+export const logout = async () => {
+  await delay(100);
+  currentUser = null;
 };
 
 export const hasPermission = async (permission) => {
-  await delay(50);
-  return currentUser.isAuthenticated && 
-         currentUser.permissions.includes(permission);
+  await delay(100);
+  if (!currentUser || !currentUser.permissions) {
+    return false;
+  }
+  return currentUser.permissions.includes(permission);
 };
 
 export const canManageContent = async () => {
-  await delay(50);
+  await delay(100);
   return await hasPermission('manage_content');
 };
 
@@ -39,6 +50,7 @@ export const login = async (credentials) => {
   // Mock login logic
   if (credentials.email === 'admin@apper.com' && credentials.password === 'admin123') {
     currentUser.isAuthenticated = true;
+    currentUser.permissions = ['read', 'write', 'delete', 'manage_content'];
     return { success: true, user: { ...currentUser } };
   }
   throw new Error('Invalid credentials');
@@ -46,10 +58,11 @@ export const login = async (credentials) => {
 
 export const logout = async () => {
   await delay(200);
-  currentUser.isAuthenticated = false;
+  if (currentUser) {
+    currentUser.isAuthenticated = false;
+  }
   return { success: true };
 };
-
 // For development - toggle admin status
 export const toggleAdminMode = () => {
   currentUser.role = currentUser.role === 'admin' ? 'user' : 'admin';
@@ -68,5 +81,6 @@ export default {
   canManageContent,
   login,
   logout,
-  toggleAdminMode
+  toggleAdminMode,
+  setCurrentUser
 };

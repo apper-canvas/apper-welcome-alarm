@@ -1,13 +1,60 @@
-import React from 'react';
-import { BookOpen, Clock, User, Menu } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { BookOpen, Clock, User, Menu, Plus, Edit2, Trash2 } from 'lucide-react';
+import { toast } from 'react-toastify';
 import LoadingSpinner from '@/components/atoms/LoadingSpinner';
+import { adminAuthService, courseContentService } from '@/services';
+import ConfirmationDialog from '@/components/molecules/ConfirmationDialog';
 
 const CourseContentViewer = ({ 
   topic, 
   loading,
   onToggleSidebar,
-  sidebarCollapsed
+  sidebarCollapsed,
+  onTopicUpdate,
+  onShowModal
 }) => {
+  const [isAdmin, setIsAdmin] = useState(false);
+  const [actionLoading, setActionLoading] = useState(false);
+  const [showDeleteDialog, setShowDeleteDialog] = useState(false);
+
+  useEffect(() => {
+    checkAdminStatus();
+  }, []);
+
+  const checkAdminStatus = async () => {
+    try {
+      const adminStatus = await adminAuthService.isAdmin();
+      setIsAdmin(adminStatus);
+    } catch (error) {
+      console.error('Failed to check admin status:', error);
+    }
+  };
+
+  const handleAddTopic = () => {
+    onShowModal('add');
+  };
+
+  const handleEditTopic = () => {
+    onShowModal('edit', topic);
+  };
+
+  const handleDeleteTopic = async () => {
+    if (!topic) return;
+
+    try {
+      setActionLoading(true);
+      await courseContentService.deleteById(topic.id);
+      toast.success('Topic deleted successfully');
+      setShowDeleteDialog(false);
+      onTopicUpdate();
+    } catch (error) {
+      console.error('Failed to delete topic:', error);
+      toast.error('Failed to delete topic');
+    } finally {
+      setActionLoading(false);
+    }
+  };
+
   if (loading) {
     return (
       <div className="h-full flex items-center justify-center bg-white">
@@ -36,7 +83,7 @@ if (!topic) {
 
 return (
     <div className="h-full flex flex-col bg-white document-viewer">
-      {/* Header with Mobile Sidebar Toggle */}
+      {/* Header with Mobile Sidebar Toggle and Admin Controls */}
       <div className="border-b border-surface-200 bg-white sticky top-0 z-10 shadow-sm">
         <div className="p-4 md:p-6">
           <div className="flex items-start gap-4">
@@ -49,9 +96,51 @@ return (
             </button>
             
             <div className="flex-1 min-w-0">
-              <h1 className="text-2xl md:text-3xl font-bold text-surface-900 mb-3 font-heading leading-tight">
-                {topic.title}
-              </h1>
+              <div className="flex items-start justify-between gap-4 mb-3">
+                <h1 className="text-2xl md:text-3xl font-bold text-surface-900 font-heading leading-tight flex-1">
+                  {topic.title}
+                </h1>
+                
+                {/* Admin Controls */}
+                {isAdmin && (
+                  <div className="flex items-center space-x-2 flex-shrink-0">
+                    <button
+                      onClick={handleAddTopic}
+                      disabled={actionLoading}
+                      className="inline-flex items-center px-3 py-2 text-sm font-medium text-white bg-primary hover:bg-primary/90 disabled:opacity-50 disabled:cursor-not-allowed rounded-lg transition-colors duration-200 shadow-sm hover:shadow-md"
+                      title="Add new topic"
+                    >
+                      <Plus className="w-4 h-4 mr-1.5" />
+                      Add
+                    </button>
+                    
+                    {topic && (
+                      <>
+                        <button
+                          onClick={handleEditTopic}
+                          disabled={actionLoading}
+                          className="inline-flex items-center px-3 py-2 text-sm font-medium text-surface-700 bg-surface-100 hover:bg-surface-200 disabled:opacity-50 disabled:cursor-not-allowed rounded-lg transition-colors duration-200 shadow-sm hover:shadow-md"
+                          title="Edit this topic"
+                        >
+                          <Edit2 className="w-4 h-4 mr-1.5" />
+                          Edit
+                        </button>
+                        
+                        <button
+                          onClick={() => setShowDeleteDialog(true)}
+                          disabled={actionLoading}
+                          className="inline-flex items-center px-3 py-2 text-sm font-medium text-red-700 bg-red-50 hover:bg-red-100 disabled:opacity-50 disabled:cursor-not-allowed rounded-lg transition-colors duration-200 shadow-sm hover:shadow-md"
+                          title="Delete this topic"
+                        >
+                          <Trash2 className="w-4 h-4 mr-1.5" />
+                          Delete
+                        </button>
+                      </>
+                    )}
+                  </div>
+                )}
+              </div>
+              
               {topic.description && (
                 <p className="text-surface-600 text-lg mb-4 leading-relaxed">
                   {topic.description}
@@ -157,7 +246,19 @@ return (
             </div>
           )}
         </div>
-      </div>
+</div>
+
+      {/* Delete Confirmation Dialog */}
+      <ConfirmationDialog
+        isOpen={showDeleteDialog}
+        onClose={() => setShowDeleteDialog(false)}
+        onConfirm={handleDeleteTopic}
+        title="Delete Topic"
+        message={`Are you sure you want to delete "${topic?.title}"? This action cannot be undone.`}
+        confirmText="Delete"
+        confirmButtonClass="bg-red-600 hover:bg-red-700 text-white"
+        loading={actionLoading}
+      />
     </div>
   );
 };
