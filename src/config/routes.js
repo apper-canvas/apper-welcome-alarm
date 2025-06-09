@@ -1,6 +1,7 @@
 import HomePage from '../components/pages/HomePage';
 import HowItWorksPage from '../components/pages/HowItWorksPage';
 import CourseContentPage from '../components/pages/CourseContentPage';
+import LearningModulesPage from '../components/pages/LearningModulesPage';
 import NotFound from '../pages/NotFound';
 
 export const routes = {
@@ -24,6 +25,13 @@ export const routes = {
     path: '/course',
     icon: 'BookOpen',
     component: CourseContentPage
+  },
+  learningModules: {
+    id: 'learningModules',
+    label: 'Learning Modules',
+    path: '/modules',
+    icon: 'GraduationCap',
+    component: LearningModulesPage
   }
 };
 

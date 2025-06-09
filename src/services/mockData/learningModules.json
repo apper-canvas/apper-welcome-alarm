@@ -1,0 +1,107 @@
+[
+  {
+    "id": 1,
+    "title": "Introduction to Interactive Learning",
+    "description": "Learn the fundamentals of interactive learning and how it can enhance your educational experience.",
+    "content": "Interactive learning is a hands-on approach to education that engages students actively in the learning process. Unlike traditional passive learning methods, interactive learning encourages participation, collaboration, and real-time feedback.\n\nKey benefits of interactive learning include:\n\n• Improved retention rates\n• Enhanced engagement\n• Better understanding of concepts\n• Development of critical thinking skills\n• Immediate feedback and assessment\n\nThis module will guide you through the principles and practices of interactive learning, providing you with the tools and knowledge needed to maximize your educational outcomes.",
+    "duration": "15 minutes",
+    "author": "Dr. Sarah Johnson",
+    "difficulty": "Beginner",
+    "objectives": [
+      "Understand the principles of interactive learning",
+      "Identify different types of interactive learning methods",
+      "Recognize the benefits of active participation in education",
+      "Apply interactive learning techniques to your studies"
+    ],
+    "codeExamples": [],
+    "createdAt": "2024-01-15T10:00:00Z",
+    "updatedAt": "2024-01-15T10:00:00Z"
+  },
+  {
+    "id": 2,
+    "title": "Digital Learning Tools and Platforms",
+    "description": "Explore the various digital tools and platforms that support modern interactive learning experiences.",
+    "content": "The digital revolution has transformed education, introducing a wide array of tools and platforms that make learning more accessible, engaging, and effective. This module covers the essential digital learning tools you'll encounter in modern education.\n\nTypes of Digital Learning Tools:\n\n1. Learning Management Systems (LMS)\n   - Canvas, Blackboard, Moodle\n   - Course organization and content delivery\n   - Assignment submission and grading\n\n2. Interactive Content Creation\n   - H5P for interactive videos and quizzes\n   - Articulate Storyline for e-learning modules\n   - Adobe Captivate for simulations\n\n3. Collaboration Tools\n   - Discussion forums and chat systems\n   - Virtual whiteboards (Miro, Jamboard)\n   - Video conferencing (Zoom, Teams)\n\n4. Assessment and Feedback Tools\n   - Real-time polling (Mentimeter, Poll Everywhere)\n   - Quiz platforms (Kahoot, Quizizz)\n   - Peer review systems\n\nBest practices for using digital learning tools include understanding your learning objectives, choosing the right tool for the task, and maintaining digital literacy skills.",
+    "duration": "25 minutes",
+    "author": "Prof. Michael Chen",
+    "difficulty": "Intermediate",
+    "objectives": [
+      "Identify key categories of digital learning tools",
+      "Evaluate the effectiveness of different platforms",
+      "Select appropriate tools for specific learning objectives",
+      "Understand best practices for digital tool integration"
+    ],
+    "codeExamples": [
+      {
+        "title": "HTML5 Interactive Quiz Example",
+        "code": "<div class=\"quiz-container\">\n  <h3>Quick Knowledge Check</h3>\n  <div class=\"question\">\n    <p>What is the primary benefit of interactive learning?</p>\n    <div class=\"options\">\n      <label><input type=\"radio\" name=\"q1\" value=\"a\"> Faster completion</label>\n      <label><input type=\"radio\" name=\"q1\" value=\"b\"> Enhanced engagement</label>\n      <label><input type=\"radio\" name=\"q1\" value=\"c\"> Lower costs</label>\n    </div>\n  </div>\n  <button onclick=\"checkAnswer()\">Submit Answer</button>\n</div>"
+      }
+    ],
+    "createdAt": "2024-01-16T09:30:00Z",
+    "updatedAt": "2024-01-16T09:30:00Z"
+  },
+  {
+    "id": 3,
+    "title": "Effective Study Strategies",
+    "description": "Master proven study techniques that leverage interactive learning principles for better academic performance.",
+    "content": "Effective studying goes beyond simply reading textbooks and taking notes. This module introduces evidence-based study strategies that incorporate interactive learning principles to maximize your learning outcomes.\n\nCore Study Strategies:\n\n1. Active Recall\n   - Testing yourself without looking at notes\n   - Using flashcards and spaced repetition\n   - Explaining concepts aloud or to others\n\n2. Spaced Repetition\n   - Reviewing material at increasing intervals\n   - Using apps like Anki or Quizlet\n   - Creating a review schedule\n\n3. Elaborative Interrogation\n   - Asking 'why' and 'how' questions\n   - Connecting new information to existing knowledge\n   - Creating analogies and examples\n\n4. Interleaving\n   - Mixing different topics in study sessions\n   - Avoiding blocking (studying one topic at a time)\n   - Enhancing transfer of learning\n\n5. Practice Testing\n   - Taking practice exams\n   - Creating your own test questions\n   - Using retrieval practice regularly\n\nImplementation Tips:\n- Start with short, focused study sessions\n- Use multiple senses (visual, auditory, kinesthetic)\n- Take regular breaks to maintain focus\n- Track your progress and adjust strategies as needed",
+    "duration": "30 minutes",
+    "author": "Dr. Emily Rodriguez",
+    "difficulty": "Intermediate",
+    "objectives": [
+      "Apply active recall techniques in your studies",
+      "Implement spaced repetition for long-term retention",
+      "Use elaborative interrogation to deepen understanding",
+      "Design effective study schedules using these strategies"
+    ],
+    "codeExamples": [
+      {
+        "title": "Spaced Repetition Algorithm (JavaScript)",
+        "code": "class SpacedRepetition {\n  constructor() {\n    this.intervals = [1, 3, 7, 14, 30, 90]; // days\n  }\n\n  calculateNextReview(currentInterval, performance) {\n    // Performance: 1-5 scale\n    if (performance >= 4) {\n      // Good performance - increase interval\n      const nextIndex = this.intervals.indexOf(currentInterval) + 1;\n      return this.intervals[Math.min(nextIndex, this.intervals.length - 1)];\n    } else {\n      // Poor performance - reset to beginning\n      return this.intervals[0];\n    }\n  }\n\n  scheduleCard(card, performance) {\n    const nextInterval = this.calculateNextReview(card.interval, performance);\n    const nextReview = new Date();\n    nextReview.setDate(nextReview.getDate() + nextInterval);\n    \n    return {\n      ...card,\n      interval: nextInterval,\n      nextReview: nextReview,\n      reviewCount: card.reviewCount + 1\n    };\n  }\n}"
+      }
+    ],
+    "createdAt": "2024-01-17T14:15:00Z",
+    "updatedAt": "2024-01-17T14:15:00Z"
+  },
+  {
+    "id": 4,
+    "title": "Collaborative Learning Techniques",
+    "description": "Discover how to leverage group work and peer interaction to enhance your learning experience.",
+    "content": "Collaborative learning harnesses the power of social interaction to deepen understanding and develop critical thinking skills. This module explores various collaborative learning techniques and how to implement them effectively.\n\nTypes of Collaborative Learning:\n\n1. Peer Teaching\n   - Students teach each other concepts\n   - Reinforces understanding for both teacher and learner\n   - Develops communication skills\n\n2. Study Groups\n   - Small groups working together on course material\n   - Sharing different perspectives and approaches\n   - Mutual support and motivation\n\n3. Project-Based Learning\n   - Teams working on real-world problems\n   - Combining different skills and knowledge areas\n   - Developing teamwork and leadership skills\n\n4. Peer Review\n   - Students evaluating each other's work\n   - Learning from different approaches\n   - Developing critical evaluation skills\n\n5. Discussion Forums\n   - Online platforms for ongoing conversations\n   - Asynchronous collaboration\n   - Building knowledge communities\n\nBenefits of Collaborative Learning:\n• Exposure to diverse perspectives\n• Development of communication skills\n• Enhanced motivation and engagement\n• Improved problem-solving abilities\n• Preparation for professional teamwork\n\nBest Practices:\n- Establish clear goals and expectations\n- Assign specific roles and responsibilities\n- Use structured activities and protocols\n- Provide guidelines for respectful interaction\n- Include individual accountability measures",
+    "duration": "20 minutes",
+    "author": "Prof. David Kim",
+    "difficulty": "Intermediate",
+    "objectives": [
+      "Understand different types of collaborative learning",
+      "Implement effective study group strategies",
+      "Develop skills for peer teaching and review",
+      "Create productive online collaboration experiences"
+    ],
+    "codeExamples": [],
+    "createdAt": "2024-01-18T11:45:00Z",
+    "updatedAt": "2024-01-18T11:45:00Z"
+  },
+  {
+    "id": 5,
+    "title": "Assessment and Self-Reflection",
+    "description": "Learn how to effectively assess your progress and use self-reflection to improve your learning outcomes.",
+    "content": "Self-assessment and reflection are crucial components of effective learning. This module teaches you how to monitor your progress, identify areas for improvement, and adjust your learning strategies accordingly.\n\nTypes of Assessment:\n\n1. Formative Assessment\n   - Ongoing evaluation during learning\n   - Self-check quizzes and activities\n   - Peer feedback and discussion\n\n2. Summative Assessment\n   - Evaluation at the end of learning periods\n   - Tests, projects, and portfolios\n   - Comprehensive understanding demonstration\n\n3. Self-Assessment\n   - Personal evaluation of knowledge and skills\n   - Learning journals and reflection logs\n   - Goal setting and progress tracking\n\nReflection Techniques:\n\n1. Learning Journals\n   - Regular written reflection on learning experiences\n   - Documenting challenges and breakthroughs\n   - Tracking emotional and cognitive responses\n\n2. Metacognitive Strategies\n   - Thinking about your thinking\n   - Monitoring comprehension and strategy use\n   - Adjusting approaches based on effectiveness\n\n3. Goal Setting and Review\n   - Setting specific, measurable learning objectives\n   - Regular review of progress toward goals\n   - Adjusting goals based on new understanding\n\n4. Portfolio Development\n   - Collecting evidence of learning over time\n   - Demonstrating growth and achievement\n   - Reflecting on learning journey\n\nImplementation Steps:\n1. Establish regular reflection practices\n2. Use multiple assessment methods\n3. Seek feedback from others\n4. Document your learning journey\n5. Celebrate progress and learn from setbacks",
+    "duration": "25 minutes",
+    "author": "Dr. Lisa Thompson",
+    "difficulty": "Advanced",
+    "objectives": [
+      "Develop effective self-assessment skills",
+      "Implement regular reflection practices",
+      "Use metacognitive strategies to improve learning",
+      "Create and maintain learning portfolios"
+    ],
+    "codeExamples": [
+      {
+        "title": "Learning Progress Tracker (JavaScript)",
+        "code": "class LearningTracker {\n  constructor() {\n    this.sessions = [];\n    this.goals = [];\n  }\n\n  addSession(topic, duration, understanding, notes) {\n    const session = {\n      id: Date.now(),\n      topic,\n      duration,\n      understanding, // 1-10 scale\n      notes,\n      date: new Date()\n    };\n    this.sessions.push(session);\n    return session;\n  }\n\n  setGoal(description, targetDate, category) {\n    const goal = {\n      id: Date.now(),\n      description,\n      targetDate: new Date(targetDate),\n      category,\n      achieved: false,\n      createdAt: new Date()\n    };\n    this.goals.push(goal);\n    return goal;\n  }\n\n  getProgressSummary() {\n    const totalSessions = this.sessions.length;\n    const avgUnderstanding = this.sessions.reduce(\n      (sum, session) => sum + session.understanding, 0\n    ) / totalSessions;\n    \n    const completedGoals = this.goals.filter(goal => goal.achieved).length;\n    const goalCompletionRate = (completedGoals / this.goals.length) * 100;\n\n    return {\n      totalSessions,\n      averageUnderstanding: avgUnderstanding.toFixed(1),\n      goalCompletionRate: goalCompletionRate.toFixed(1),\n      recentTrend: this.calculateTrend()\n    };\n  }\n\n  calculateTrend() {\n    if (this.sessions.length < 5) return 'Insufficient data';\n    \n    const recent = this.sessions.slice(-5);\n    const older = this.sessions.slice(-10, -5);\n    \n    const recentAvg = recent.reduce((sum, s) => sum + s.understanding, 0) / recent.length;\n    const olderAvg = older.reduce((sum, s) => sum + s.understanding, 0) / older.length;\n    \n    if (recentAvg > olderAvg + 0.5) return 'Improving';\n    if (recentAvg < olderAvg - 0.5) return 'Declining';\n    return 'Stable';\n  }\n}"
+      }
+    ],
+    "createdAt": "2024-01-19T16:20:00Z",
+    "updatedAt": "2024-01-19T16:20:00Z"
+  }
+]

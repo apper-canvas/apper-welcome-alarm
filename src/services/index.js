@@ -1,5 +1,9 @@
-import * as pageContentService from './api/pageContentService';
-import * as courseContentService from './api/courseContentService';
-import * as adminAuthService from './api/adminAuthService';
+// Barrel exports for services
+export * as courseContentService from './api/courseContentService';
+export * as pageContentService from './api/pageContentService';
+export * as adminAuthService from './api/adminAuthService';
+export * as learningModulesService from './api/learningModulesService';
 
-export { pageContentService, courseContentService, adminAuthService };
+// Default exports (for compatibility)
+export { courseContentService } from './api/courseContentService';
+export { learningModulesService } from './api/learningModulesService';
