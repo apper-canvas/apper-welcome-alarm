@@ -39,10 +39,10 @@ const CourseContentViewer = ({
     onShowModal('edit', topic);
   };
 
-  const handleDeleteTopic = async () => {
+const handleDeleteTopic = async () => {
     if (!topic) return;
 
-try {
+    try {
       setActionLoading(true);
       await service.deleteById(topic.id);
       toast.success('Topic deleted successfully');
