@@ -1,6 +1,7 @@
 import React from 'react';
-import ApperIcon from '@/components/ApperIcon';
-import MotionButton from '@/components/atoms/MotionButton';
+import { motion } from 'framer-motion';
+import ApperIcon from '../ApperIcon';
+import MotionButton from '../atoms/MotionButton';
 
 const HeroCallToAction = ({ ctaText, onClick, className, ...motionDivProps }) => {
   return (
