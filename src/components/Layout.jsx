@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Outlet, useLocation, useNavigate } from 'react-router-dom';
+import { Outlet, useLocation, useNavigate, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Home, 
@@ -34,18 +34,15 @@ const Layout = () => {
 
   const isActive = (path) => location.pathname === path;
 
-  return (
+return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
-      <header className="bg-white shadow-sm border-b">
+      <header className="bg-white shadow-sm border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             {/* Logo */}
             <div className="flex items-center">
-              <ApperIconLogo className="h-8 w-8" />
-              <span className="ml-2 text-xl font-semibold text-gray-900">
-                Apper
-              </span>
+              <ApperIconLogo />
             </div>
 
             {/* Desktop Navigation */}
@@ -92,7 +89,7 @@ const Layout = () => {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
-              className="md:hidden border-t border-gray-200"
+              transition={{ duration: 0.2 }}
             >
               <div className="px-2 pt-2 pb-3 space-y-1 bg-white">
                 {navigationItems.map((item) => {

@@ -1,0 +1,142 @@
+[
+  {
+    "id": 1,
+    "title": "React Fundamentals Study Guide",
+    "description": "Complete guide covering React basics, components, and state management",
+    "content": "React is a JavaScript library for building user interfaces. It was developed by Facebook and is now maintained by Facebook and the community.\n\n## Core Concepts\n\n### Components\nReact applications are built using components. A component is a reusable piece of code that returns a React element to be rendered to the page.\n\n### JSX\nJSX is a syntax extension for JavaScript that looks similar to XML or HTML. It allows you to write HTML-like code in your JavaScript files.\n\n### Props\nProps (short for properties) are a way of passing data from parent to child components. They are read-only and help make components reusable.\n\n### State\nState is a way to store and manage data that can change over time in a React component. When state changes, the component re-renders.\n\n## Getting Started\n\nTo create a new React application, you can use Create React App:\n\n```bash\nnpx create-react-app my-app\ncd my-app\nnpm start\n```\n\nThis will create a new React project and start the development server.",
+    "duration": "45 minutes",
+    "author": "React Team",
+    "difficulty": "Beginner",
+    "objectives": [
+      "Understand what React is and why it's useful",
+      "Learn about components and JSX",
+      "Understand props and how to pass data between components",
+      "Learn about state and how to manage component data",
+      "Create your first React application"
+    ],
+    "codeExamples": [
+      {
+        "title": "Basic React Component",
+        "code": "import React from 'react';\n\nfunction Welcome(props) {\n  return <h1>Hello, {props.name}!</h1>;\n}\n\nexport default Welcome;"
+      },
+      {
+        "title": "Component with State",
+        "code": "import React, { useState } from 'react';\n\nfunction Counter() {\n  const [count, setCount] = useState(0);\n\n  return (\n    <div>\n      <p>You clicked {count} times</p>\n      <button onClick={() => setCount(count + 1)}>\n        Click me\n      </button>\n    </div>\n  );\n}\n\nexport default Counter;"
+      }
+    ],
+    "createdAt": "2024-01-15T10:00:00Z",
+    "updatedAt": "2024-01-15T10:00:00Z"
+  },
+  {
+    "id": 2,
+    "title": "JavaScript ES6+ Features",
+    "description": "Modern JavaScript features including arrow functions, destructuring, and modules",
+    "content": "ES6 (ECMAScript 2015) and later versions introduced many new features that make JavaScript more powerful and easier to work with.\n\n## Arrow Functions\nArrow functions provide a more concise way to write functions and automatically bind the 'this' context.\n\n## Destructuring\nDestructuring allows you to extract multiple properties from objects or arrays in a single statement.\n\n## Template Literals\nTemplate literals provide an easy way to create strings with embedded expressions.\n\n## Modules\nES6 modules allow you to split your code into separate files and import/export functionality between them.\n\n## Promises and Async/Await\nPromises provide a better way to handle asynchronous operations, and async/await makes working with promises even easier.",
+    "duration": "60 minutes",
+    "author": "JavaScript Guide Team",
+    "difficulty": "Intermediate",
+    "objectives": [
+      "Master arrow function syntax and behavior",
+      "Use destructuring for objects and arrays",
+      "Work with template literals",
+      "Understand ES6 modules",
+      "Handle asynchronous code with promises and async/await"
+    ],
+    "codeExamples": [
+      {
+        "title": "Arrow Functions",
+        "code": "// Traditional function\nfunction add(a, b) {\n  return a + b;\n}\n\n// Arrow function\nconst add = (a, b) => a + b;\n\n// Arrow function with block body\nconst multiply = (a, b) => {\n  return a * b;\n};"
+      },
+      {
+        "title": "Destructuring",
+        "code": "// Object destructuring\nconst user = { name: 'John', age: 30, city: 'New York' };\nconst { name, age } = user;\n\n// Array destructuring\nconst colors = ['red', 'green', 'blue'];\nconst [primary, secondary] = colors;\n\n// Function parameter destructuring\nconst greet = ({ name, age }) => {\n  console.log(`Hello ${name}, you are ${age} years old`);\n};"
+      }
+    ],
+    "createdAt": "2024-01-16T14:30:00Z",
+    "updatedAt": "2024-01-16T14:30:00Z"
+  },
+  {
+    "id": 3,
+    "title": "CSS Grid and Flexbox Guide",
+    "description": "Comprehensive guide to modern CSS layout techniques",
+    "content": "CSS Grid and Flexbox are powerful layout systems that make it easier to create complex, responsive web layouts.\n\n## Flexbox\nFlexbox is designed for one-dimensional layouts. It's perfect for arranging items in a row or column.\n\n### Key Concepts:\n- Flex container and flex items\n- Main axis and cross axis\n- Flex direction\n- Justify content and align items\n\n## CSS Grid\nCSS Grid is designed for two-dimensional layouts. It allows you to create complex layouts with rows and columns.\n\n### Key Concepts:\n- Grid container and grid items\n- Grid lines and grid tracks\n- Grid areas\n- Implicit and explicit grids\n\n## When to Use Each\n- Use Flexbox for one-dimensional layouts (navigation bars, button groups)\n- Use CSS Grid for two-dimensional layouts (page layouts, card grids)",
+    "duration": "75 minutes",
+    "author": "CSS Expert Team",
+    "difficulty": "Intermediate",
+    "objectives": [
+      "Understand the difference between Flexbox and CSS Grid",
+      "Master Flexbox properties and alignment",
+      "Create grid layouts with CSS Grid",
+      "Build responsive layouts",
+      "Know when to use each layout method"
+    ],
+    "codeExamples": [
+      {
+        "title": "Basic Flexbox Layout",
+        "code": ".container {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  gap: 1rem;\n}\n\n.item {\n  flex: 1;\n  padding: 1rem;\n  background: #f0f0f0;\n}"
+      },
+      {
+        "title": "CSS Grid Layout",
+        "code": ".grid-container {\n  display: grid;\n  grid-template-columns: repeat(3, 1fr);\n  grid-template-rows: auto 1fr auto;\n  gap: 1rem;\n  min-height: 100vh;\n}\n\n.header {\n  grid-column: 1 / -1;\n}\n\n.sidebar {\n  grid-row: 2;\n}\n\n.main {\n  grid-column: 2 / -1;\n  grid-row: 2;\n}\n\n.footer {\n  grid-column: 1 / -1;\n}"
+      }
+    ],
+    "createdAt": "2024-01-17T09:15:00Z",
+    "updatedAt": "2024-01-17T09:15:00Z"
+  },
+  {
+    "id": 4,
+    "title": "Git Version Control Essentials",
+    "description": "Master Git workflows, branching, and collaboration",
+    "content": "Git is a distributed version control system that helps you track changes in your code and collaborate with other developers.\n\n## Basic Git Workflow\n1. Clone or initialize a repository\n2. Make changes to your files\n3. Stage changes with git add\n4. Commit changes with git commit\n5. Push changes to remote repository\n\n## Branching\nBranches allow you to work on different features simultaneously without affecting the main codebase.\n\n## Merging\nMerging combines changes from different branches.\n\n## Collaboration\nGit enables multiple developers to work on the same project through:\n- Remote repositories\n- Pull requests\n- Code reviews\n- Conflict resolution",
+    "duration": "50 minutes",
+    "author": "DevOps Team",
+    "difficulty": "Beginner",
+    "objectives": [
+      "Understand Git basics and terminology",
+      "Learn essential Git commands",
+      "Master branching and merging",
+      "Collaborate effectively using Git",
+      "Resolve merge conflicts"
+    ],
+    "codeExamples": [
+      {
+        "title": "Basic Git Commands",
+        "code": "# Initialize a new repository\ngit init\n\n# Clone a repository\ngit clone https://github.com/user/repo.git\n\n# Check status\ngit status\n\n# Stage changes\ngit add .\ngit add filename.txt\n\n# Commit changes\ngit commit -m \"Add new feature\"\n\n# Push to remote\ngit push origin main"
+      },
+      {
+        "title": "Branching Workflow",
+        "code": "# Create and switch to new branch\ngit checkout -b feature-branch\n\n# List all branches\ngit branch\n\n# Switch branches\ngit checkout main\n\n# Merge branch\ngit merge feature-branch\n\n# Delete branch\ngit branch -d feature-branch\n\n# Push new branch to remote\ngit push -u origin feature-branch"
+      }
+    ],
+    "createdAt": "2024-01-18T11:45:00Z",
+    "updatedAt": "2024-01-18T11:45:00Z"
+  },
+  {
+    "id": 5,
+    "title": "Node.js and npm Guide",
+    "description": "Backend development with Node.js and package management with npm",
+    "content": "Node.js is a JavaScript runtime that allows you to run JavaScript on the server. npm is the package manager for Node.js.\n\n## Node.js Basics\nNode.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient.\n\n## npm (Node Package Manager)\nnpm is the world's largest software registry. It allows you to:\n- Install packages\n- Manage dependencies\n- Run scripts\n- Publish your own packages\n\n## Building APIs\nNode.js is commonly used to build RESTful APIs and web servers.\n\n## File System Operations\nNode.js provides built-in modules for working with the file system.\n\n## Asynchronous Programming\nNode.js heavily relies on callbacks, promises, and async/await for handling asynchronous operations.",
+    "duration": "90 minutes",
+    "author": "Backend Team",
+    "difficulty": "Intermediate",
+    "objectives": [
+      "Understand Node.js architecture and event loop",
+      "Master npm commands and package management",
+      "Build simple web servers and APIs",
+      "Work with Node.js built-in modules",
+      "Handle asynchronous operations effectively"
+    ],
+    "codeExamples": [
+      {
+        "title": "Simple HTTP Server",
+        "code": "const http = require('http');\nconst fs = require('fs');\n\nconst server = http.createServer((req, res) => {\n  res.writeHead(200, { 'Content-Type': 'text/html' });\n  \n  if (req.url === '/') {\n    res.end('<h1>Welcome to Node.js Server</h1>');\n  } else if (req.url === '/about') {\n    res.end('<h1>About Page</h1>');\n  } else {\n    res.end('<h1>Page Not Found</h1>');\n  }\n});\n\nserver.listen(3000, () => {\n  console.log('Server running on port 3000');\n});"
+      },
+      {
+        "title": "Working with Files",
+        "code": "const fs = require('fs');\nconst path = require('path');\n\n// Read file asynchronously\nfs.readFile('data.txt', 'utf8', (err, data) => {\n  if (err) {\n    console.error('Error reading file:', err);\n    return;\n  }\n  console.log('File content:', data);\n});\n\n// Write file\nfs.writeFile('output.txt', 'Hello Node.js!', (err) => {\n  if (err) {\n    console.error('Error writing file:', err);\n    return;\n  }\n  console.log('File written successfully');\n});"
+      }
+    ],
+    "createdAt": "2024-01-19T16:20:00Z",
+    "updatedAt": "2024-01-19T16:20:00Z"
+  }
+]

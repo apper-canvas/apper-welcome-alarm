@@ -11,7 +11,8 @@ const CourseContentViewer = ({
   onToggleSidebar,
   sidebarCollapsed,
   onTopicUpdate,
-  onShowModal
+  onShowModal,
+  service = courseContentService
 }) => {
   const [isAdmin, setIsAdmin] = useState(false);
   const [actionLoading, setActionLoading] = useState(false);
@@ -41,9 +42,9 @@ const CourseContentViewer = ({
   const handleDeleteTopic = async () => {
     if (!topic) return;
 
-    try {
+try {
       setActionLoading(true);
-      await courseContentService.deleteById(topic.id);
+      await service.deleteById(topic.id);
       toast.success('Topic deleted successfully');
       setShowDeleteDialog(false);
       onTopicUpdate();

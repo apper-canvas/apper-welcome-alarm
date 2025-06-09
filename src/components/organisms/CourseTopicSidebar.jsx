@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { BookOpen, ChevronRight, Menu, X } from 'lucide-react';
 
-const CourseTopicSidebar = ({ topics, selectedTopic, onTopicSelect, collapsed, onToggleCollapse }) => {
+const CourseTopicSidebar = ({ topics, selectedTopic, onTopicSelect, collapsed, onToggleCollapse, title = "Course Content", subtitle = "Getting Started with Apper" }) => {
   const selectedRef = useRef(null);
 
   useEffect(() => {
@@ -42,13 +42,13 @@ return (
             <div className="p-2 bg-primary/10 rounded-lg">
               <BookOpen className="w-5 h-5 text-primary" />
             </div>
-            {!collapsed && (
+{!collapsed && (
               <div>
                 <h2 className="text-lg font-semibold text-surface-900 font-heading">
-                  Course Content
+                  {title}
                 </h2>
                 <p className="text-sm text-surface-600">
-                  Getting Started with Apper
+                  {subtitle}
                 </p>
               </div>
             )}
