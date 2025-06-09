@@ -1,0 +1,11 @@
+[
+  {
+    "id": 1,
+    "logoUrl": "/apper-logo.svg",
+    "headline": "Welcome to Apper – Your AI App Builder",
+    "introLine1": "Transform your ideas into fully functional apps in minutes.",
+    "introLine2": "No coding experience required - just describe what you want to build.",
+    "ctaText": "Click Next to begin",
+    "nextUrl": "/getting-started"
+  }
+]
