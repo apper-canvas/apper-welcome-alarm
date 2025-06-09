@@ -3,13 +3,15 @@ import HowItWorksPage from '@/components/pages/HowItWorksPage';
 import CourseContentPage from '@/components/pages/CourseContentPage';
 import LearningModulesPage from '@/components/pages/LearningModulesPage';
 import StudyGuidePage from '@/components/pages/StudyGuidePage';
+import StartOverPage from '@/components/pages/StartOverPage';
 
 export const routes = [
   { path: '/', component: HomePage, name: 'Home' },
   { path: '/how-it-works', component: HowItWorksPage, name: 'How It Works' },
   { path: '/course-content', component: CourseContentPage, name: 'Course Content' },
   { path: '/learning-modules', component: LearningModulesPage, name: 'Learning Modules' },
-  { path: '/study-guides', component: StudyGuidePage, name: 'Study Guides' }
+  { path: '/study-guides', component: StudyGuidePage, name: 'Study Guides' },
+  { path: '/start-over', component: StartOverPage, name: 'Start Over' }
 ];
 
 export const routeConfig = {
@@ -27,12 +29,19 @@ export const routeConfig = {
     icon: 'BookOpen',
     component: CourseContentPage
   },
-  learningModules: {
+learningModules: {
     id: 'learningModules',
     label: 'Learning Modules',
     path: '/modules',
     icon: 'GraduationCap',
     component: LearningModulesPage
+  },
+  startOver: {
+    id: 'startOver',
+    label: 'Start Over',
+    path: '/start-over',
+    icon: 'RotateCcw',
+    component: StartOverPage
   }
 };
 

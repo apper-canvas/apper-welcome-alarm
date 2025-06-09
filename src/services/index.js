@@ -9,6 +9,8 @@ export * as learningModulesService from './api/learningModulesService.js';
 
 // Study Guide Service
 export * as studyGuideService from './api/studyGuideService.js';
+// Study Guide Service
+export * as studyGuideService from './api/studyGuideService.js';
 
-// Admin Auth Service
-export * as adminAuthService from './api/adminAuthService.js';
+// Start Over Service
+export * as startOverService from './api/startOverService.js';
