@@ -1,5 +1,6 @@
 import HomePage from '../components/pages/HomePage';
 import HowItWorksPage from '../components/pages/HowItWorksPage';
+import CourseContentPage from '../components/pages/CourseContentPage';
 import NotFound from '../pages/NotFound';
 
 export const routes = {
@@ -16,6 +17,13 @@ export const routes = {
     path: '/how-it-works',
     icon: 'HelpCircle',
     component: HowItWorksPage
+  },
+  courseContent: {
+    id: 'courseContent',
+    label: 'Course Content',
+    path: '/course',
+    icon: 'BookOpen',
+    component: CourseContentPage
   }
 };
 

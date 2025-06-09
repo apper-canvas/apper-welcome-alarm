@@ -1,0 +1,107 @@
+[
+  {
+    "id": 1,
+    "title": "Introduction to Apper",
+    "description": "Get started with the basics of Apper and understand how AI can help you build applications.",
+    "content": "Welcome to Apper! Apper is an innovative AI-powered platform that transforms your ideas into fully functional applications without requiring traditional coding knowledge.\n\nIn this introduction, you'll learn:\n\n1. **What is Apper?**\nApper is an AI app builder that uses natural language processing to understand your requirements and generate complete applications. Simply describe what you want to build, and Apper will create it for you.\n\n2. **How does it work?**\nOur AI analyzes your description, identifies the key components needed, and assembles a working application using best practices in software development.\n\n3. **What can you build?**\n- Web applications\n- Mobile apps\n- Dashboard interfaces\n- E-commerce platforms\n- Content management systems\n- And much more!\n\n4. **No coding required**\nYou don't need to know programming languages, frameworks, or complex technical concepts. Apper handles all the technical implementation while you focus on your vision.\n\nLet's start your journey into AI-powered app development!",
+    "duration": "10 minutes",
+    "author": "Apper Team",
+    "difficulty": "Beginner",
+    "objectives": [
+      "Understand what Apper is and how it works",
+      "Learn about AI-powered app development",
+      "Identify what types of applications you can build",
+      "Get comfortable with the no-code approach"
+    ],
+    "codeExamples": [],
+    "createdAt": "2024-01-15T10:00:00Z",
+    "updatedAt": "2024-01-15T10:00:00Z"
+  },
+  {
+    "id": 2,
+    "title": "Your First App with Apper",
+    "description": "Learn how to create your very first application using Apper's AI-powered platform.",
+    "content": "Now that you understand the basics, let's build your first app together!\n\n**Step 1: Define Your App Idea**\nThink about a simple application you'd like to create. For this tutorial, we'll build a \"Personal Task Manager\" app.\n\n**Step 2: Describe Your Requirements**\nWhen describing your app to Apper, be specific about:\n- What the app should do\n- Who will use it\n- Key features you need\n- How it should look and feel\n\n**Example Description:**\n\"I want to create a personal task manager where I can add, edit, and delete tasks. Each task should have a title, description, due date, and priority level. I want to see my tasks in a clean list format and be able to mark them as complete.\"\n\n**Step 3: Let Apper Build**\nOnce you provide your description, Apper will:\n1. Analyze your requirements\n2. Design the user interface\n3. Create the data structure\n4. Implement the functionality\n5. Generate a working application\n\n**Step 4: Review and Refine**\nAfter Apper creates your app, you can:\n- Test all the features\n- Request modifications\n- Add new functionality\n- Customize the appearance\n\n**Tips for Success:**\n- Start simple and add complexity gradually\n- Be clear and specific in your descriptions\n- Don't hesitate to iterate and improve\n- Test your app thoroughly before sharing",
+    "duration": "15 minutes",
+    "author": "Apper Team",
+    "difficulty": "Beginner",
+    "objectives": [
+      "Learn the step-by-step process of creating an app",
+      "Understand how to write effective app descriptions",
+      "Experience the Apper build process",
+      "Know how to review and refine your application"
+    ],
+    "codeExamples": [
+      {
+        "title": "Sample App Description Format",
+        "code": "App Type: [Web Application/Mobile App/Dashboard]\nPurpose: [Brief description of what the app does]\nTarget Users: [Who will use this app]\n\nKey Features:\n- Feature 1: [Detailed description]\n- Feature 2: [Detailed description]\n- Feature 3: [Detailed description]\n\nUser Interface:\n- Layout: [Describe the general layout]\n- Style: [Modern, minimal, colorful, etc.]\n- Navigation: [How users move through the app]\n\nData Requirements:\n- What information needs to be stored\n- How data should be organized\n- Any special data handling needs"
+      }
+    ],
+    "createdAt": "2024-01-15T11:00:00Z",
+    "updatedAt": "2024-01-15T11:00:00Z"
+  },
+  {
+    "id": 3,
+    "title": "Understanding App Components",
+    "description": "Learn about the different components that make up modern applications and how Apper handles them.",
+    "content": "Every application is made up of several key components. Understanding these will help you better describe what you want Apper to build.\n\n**1. User Interface (UI) Components**\nThese are the visual elements users interact with:\n- Buttons for actions\n- Forms for input\n- Lists for displaying data\n- Navigation menus\n- Modal dialogs\n- Charts and graphs\n\n**2. Data Management**\nHow your app stores and handles information:\n- Databases for persistent storage\n- Forms for data entry\n- Validation to ensure data quality\n- Search and filtering capabilities\n- Import/export functionality\n\n**3. User Authentication**\nManaging who can access your app:\n- Login and registration systems\n- Password security\n- User roles and permissions\n- Profile management\n\n**4. Business Logic**\nThe rules and processes that make your app work:\n- Calculations and computations\n- Workflow automation\n- Notifications and alerts\n- Integration with external services\n\n**5. Responsive Design**\nEnsuring your app works on all devices:\n- Mobile-friendly layouts\n- Touch-friendly interfaces\n- Adaptive screen sizes\n- Cross-browser compatibility\n\n**How Apper Handles Components:**\nWhen you describe your app, Apper automatically:\n- Identifies which components you need\n- Implements them using best practices\n- Ensures they work together seamlessly\n- Applies modern design principles\n- Optimizes for performance and usability\n\nYou don't need to specify technical details - just describe what you want your app to do, and Apper will choose the right components and implement them properly.",
+    "duration": "12 minutes",
+    "author": "Apper Team",
+    "difficulty": "Beginner",
+    "objectives": [
+      "Understand the main components of modern applications",
+      "Learn how different components work together",
+      "Recognize what you need when planning an app",
+      "Understand how Apper automatically handles technical implementation"
+    ],
+    "codeExamples": [],
+    "createdAt": "2024-01-15T12:00:00Z",
+    "updatedAt": "2024-01-15T12:00:00Z"
+  },
+  {
+    "id": 4,
+    "title": "Advanced Features and Customization",
+    "description": "Explore advanced features you can add to your applications and how to customize them to your needs.",
+    "content": "Once you're comfortable with basic app creation, you can explore more advanced features and customization options.\n\n**Advanced Features You Can Request:**\n\n**1. Real-time Updates**\n- Live chat systems\n- Collaborative editing\n- Real-time notifications\n- Live data dashboards\n\n**2. Third-party Integrations**\n- Payment processing (Stripe, PayPal)\n- Email services (SendGrid, Mailchimp)\n- Social media APIs\n- Cloud storage (Google Drive, Dropbox)\n- Maps and location services\n\n**3. Advanced Data Operations**\n- Complex filtering and search\n- Data analytics and reporting\n- Bulk operations\n- Data visualization\n- Export to various formats\n\n**4. Workflow Automation**\n- Automated email notifications\n- Scheduled tasks\n- Approval workflows\n- Multi-step processes\n\n**Customization Options:**\n\n**1. Visual Customization**\n- Custom color schemes\n- Brand logos and imagery\n- Custom fonts and typography\n- Layout modifications\n\n**2. Functional Customization**\n- Custom business rules\n- Specialized calculations\n- Unique user workflows\n- Industry-specific features\n\n**3. Performance Optimization**\n- Caching strategies\n- Database optimization\n- Mobile performance tuning\n- Load time improvements\n\n**How to Request Advanced Features:**\n\n1. **Be Specific**: Clearly describe the exact functionality you need\n2. **Provide Context**: Explain why you need the feature and how it fits into your workflow\n3. **Give Examples**: Reference similar features in other applications if helpful\n4. **Iterate**: Start with basic functionality and add complexity gradually\n\n**Example Advanced Request:**\n\"I need my task management app to send email reminders 24 hours before tasks are due. The email should include the task title, description, and a link to mark it complete. Users should be able to customize when they receive these reminders in their profile settings.\"\n\nRemember: The more detailed and specific you are about your requirements, the better Apper can implement exactly what you need.",
+    "duration": "20 minutes",
+    "author": "Apper Team",
+    "difficulty": "Intermediate",
+    "objectives": [
+      "Learn about advanced features available in modern applications",
+      "Understand how to request complex functionality from Apper",
+      "Explore customization options for your applications",
+      "Know how to iterate and improve your apps over time"
+    ],
+    "codeExamples": [
+      {
+        "title": "Advanced Feature Request Template",
+        "code": "Feature Name: [Clear, descriptive name]\n\nPurpose: [What this feature accomplishes]\n\nUser Story: As a [user type], I want [functionality] so that [benefit]\n\nDetailed Requirements:\n1. [Specific requirement 1]\n2. [Specific requirement 2]\n3. [Specific requirement 3]\n\nBehavior:\n- When [trigger], then [action]\n- If [condition], then [alternative action]\n\nIntegrations Needed:\n- [External service 1]\n- [External service 2]\n\nSuccess Criteria:\n- [Measurable outcome 1]\n- [Measurable outcome 2]"
+      }
+    ],
+    "createdAt": "2024-01-15T13:00:00Z",
+    "updatedAt": "2024-01-15T13:00:00Z"
+  },
+  {
+    "id": 5,
+    "title": "Testing and Deploying Your App",
+    "description": "Learn how to test your application thoroughly and deploy it for others to use.",
+    "content": "Once Apper has built your application, it's important to test it thoroughly before sharing it with others.\n\n**Testing Your Application:**\n\n**1. Functional Testing**\nVerify that all features work as expected:\n- Test every button and form\n- Try different user scenarios\n- Verify data is saved correctly\n- Check that calculations are accurate\n- Ensure error handling works properly\n\n**2. User Experience Testing**\nMake sure the app is easy to use:\n- Navigation is intuitive\n- Instructions are clear\n- Loading times are reasonable\n- Error messages are helpful\n- Mobile experience is smooth\n\n**3. Data Testing**\nValidate that data handling is robust:\n- Try entering invalid data\n- Test with large amounts of data\n- Verify data privacy and security\n- Check data backup and recovery\n\n**4. Cross-platform Testing**\nEnsure compatibility across devices:\n- Test on different browsers\n- Check mobile devices (phone, tablet)\n- Verify on different operating systems\n- Test various screen sizes\n\n**Common Issues to Watch For:**\n- Buttons that don't respond\n- Forms that don't validate input\n- Pages that load slowly\n- Features that work inconsistently\n- Data that doesn't save properly\n\n**Deploying Your Application:**\n\n**1. Pre-deployment Checklist**\n- All features tested and working\n- Content reviewed for accuracy\n- User permissions configured\n- Security settings verified\n- Performance optimized\n\n**2. Deployment Options**\nApper provides several deployment options:\n- **Development Environment**: For testing and development\n- **Staging Environment**: For final testing before launch\n- **Production Environment**: For live use by real users\n- **Custom Domain**: Use your own web address\n\n**3. Post-deployment Tasks**\n- Monitor app performance\n- Gather user feedback\n- Track usage analytics\n- Plan future improvements\n- Maintain and update regularly\n\n**Getting Help:**\nIf you encounter issues during testing or deployment:\n- Check the Apper documentation\n- Contact Apper support\n- Review error logs and messages\n- Test in a clean environment\n- Ask for community help\n\nRemember: Thorough testing prevents problems later and ensures your users have a great experience with your application.",
+    "duration": "18 minutes",
+    "author": "Apper Team",
+    "difficulty": "Intermediate",
+    "objectives": [
+      "Learn comprehensive testing strategies for applications",
+      "Understand different deployment options and processes",
+      "Know how to identify and resolve common issues",
+      "Develop skills for maintaining applications post-launch"
+    ],
+    "codeExamples": [
+      {
+        "title": "Testing Checklist Template",
+        "code": "# Application Testing Checklist\n\n## Functional Testing\n☐ All forms submit correctly\n☐ All buttons perform expected actions\n☐ Data validation works properly\n☐ Search functionality returns correct results\n☐ File uploads work (if applicable)\n☐ User authentication functions correctly\n\n## User Experience\n☐ Navigation is intuitive\n☐ Page load times are acceptable (<3 seconds)\n☐ Error messages are clear and helpful\n☐ Mobile interface is user-friendly\n☐ Text is readable on all screen sizes\n\n## Data Integrity\n☐ Data saves correctly\n☐ Data displays accurately\n☐ Invalid data is rejected\n☐ Data can be edited and updated\n☐ Data deletion works when intended\n\n## Cross-platform\n☐ Works in Chrome\n☐ Works in Firefox\n☐ Works in Safari\n☐ Works in Edge\n☐ Responsive on mobile devices\n☐ Accessible via keyboard navigation"
+      }
+    ],
+    "createdAt": "2024-01-15T14:00:00Z",
+    "updatedAt": "2024-01-15T14:00:00Z"
+  }
+]
